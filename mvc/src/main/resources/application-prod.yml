@@ -1,0 +1,28 @@
+spring:
+  profiles: prod
+
+  server:
+    port: 8081
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    name: springboot2_db
+    url: jdbc:mysql://127.0.0.1:3306/springboot2_db?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: root
+    password: root
+    # \u4EE5\u4E0B\u662F\u6570\u636E\u5E93\u8FDE\u63A5\u6C60\u914D\u7F6E
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxOpenPreparedStatements: 20
