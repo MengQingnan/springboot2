@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds"  debug="false">
-    <property name="LOG_HOME" value="c:\\test\\logs" />
     <property name="APP_NAME" value="springboot2"/>
+    <property name="LOG_HOME" value="/usr/local/logs/rolling/${APP_NAME}" />
     <!-- 彩色日志 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
     <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
