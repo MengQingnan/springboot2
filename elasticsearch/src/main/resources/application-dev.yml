@@ -6,8 +6,10 @@ spring:
 
   data:
     elasticsearch:
-      cluster-name: es-cluster
-      cluster-nodes: 114.67.239.37:50005,114.67.239.37:50003
-#      properties:
-      repositories:
-        enabled: true
+      zaodao:
+        cluster-name: es-cluster
+        cluster-nodes: 114.67.239.37:50005,114.67.239.37:50003
+        client-transport-sniff: false
+        client-ignore-cluster-name: false
+        client-ping-timeout: 10s
+        client-nodes-sampler-interval: 10s

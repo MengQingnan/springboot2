@@ -1,7 +1,9 @@
 package com.izaodao.springboot2.es.controller;
 
 import com.izaodao.springboot2.es.dao.JapanesedoyenRepository;
+import com.izaodao.springboot2.es.dao.ZaodaodnhzxRepository;
 import com.izaodao.springboot2.es.entity.Japanesedoyen;
+import com.izaodao.springboot2.es.entity.ZaodaoDnhzx;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,22 +22,29 @@ public class ElasticSearchController {
     @Autowired
     private JapanesedoyenRepository er;
 
-//    //增加
-//    @RequestMapping("/add/{id}")
-//    public String add(@PathVariable("id")String id){
-//
-//        Japanesedoyen Japanesedoyen=new Japanesedoyen();
-//        Japanesedoyen.setId(id);
-//        Japanesedoyen.setFirstName("Y.S.K");
-//        Japanesedoyen.setLastName("~");
-//        Japanesedoyen.setAge(26);
-//        Japanesedoyen.setAbout("");
-//        er.save(Japanesedoyen);
-//
-//        System.err.println("add a obj");
-//
-//        return "success";
-//    }
+    @Autowired
+    private ZaodaodnhzxRepository zaodaodnhzxRepository;
+
+    //增加
+    @RequestMapping("/add/{id}")
+    public String add(@PathVariable("id")String id){
+
+        ZaodaoDnhzx zaodaoDnhzx=new ZaodaoDnhzx();
+        zaodaoDnhzx.setId(id);
+        zaodaoDnhzx.setName("mqn");
+        zaodaoDnhzx.setSex("1");
+        zaodaodnhzxRepository.save(zaodaoDnhzx);
+
+        return "success";
+    }
+
+    //查询
+    @RequestMapping("/query1/{id}")
+    public ZaodaoDnhzx query1(@PathVariable("id")String id){
+
+        ZaodaoDnhzx accountInfo = zaodaodnhzxRepository.queryZaodaoDnhzxById(id);
+        return accountInfo;
+    }
 //
 //    //删除
 //    @RequestMapping("/delete")
