@@ -4,6 +4,8 @@ import com.izaodao.springboot2.es.entity.ZaodaoDnhzx;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * ceshi
  *
@@ -13,4 +15,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface ZaodaodnhzxRepository extends ElasticsearchRepository<ZaodaoDnhzx,String> {
     ZaodaoDnhzx queryZaodaoDnhzxById(String id);
+
+    List<ZaodaoDnhzx> save(List<ZaodaoDnhzx> list);
 }

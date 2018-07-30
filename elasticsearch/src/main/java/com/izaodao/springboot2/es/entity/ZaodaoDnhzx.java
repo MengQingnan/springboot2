@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.annotations.Field;
  * @Date: 2018/7/26 下午4:30
  * Copyright (c) 2018, zaodao All Rights Reserved.
  */
-@Document(indexName = "zaodaodnhzx", type = "zaodaodnhzx", shards = 1, replicas = 0, refreshInterval = "60s")
+@Document(indexName = "zaodaodnhzx", type = "zaodaodnhzx", shards = 1, replicas = 0, refreshInterval = "30s")
 public class ZaodaoDnhzx {
     @Id
     private String id;

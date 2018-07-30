@@ -7,8 +7,8 @@ spring:
   data:
     elasticsearch:
       zaodao:
-        cluster-name: es-cluster
-        cluster-nodes: 114.67.239.37:50005,114.67.239.37:50003
+        cluster-name: elasticsearch-cluster
+        cluster-nodes: 10.42.0.136:9300,10.42.0.137:9300,10.42.0.138:9300
         client-transport-sniff: false
         client-ignore-cluster-name: false
         client-ping-timeout: 10s

@@ -5,9 +5,13 @@ import com.izaodao.springboot2.es.dao.ZaodaodnhzxRepository;
 import com.izaodao.springboot2.es.entity.Japanesedoyen;
 import com.izaodao.springboot2.es.entity.ZaodaoDnhzx;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ss
@@ -25,15 +29,23 @@ public class ElasticSearchController {
     @Autowired
     private ZaodaodnhzxRepository zaodaodnhzxRepository;
 
+    @Autowired
+    private ElasticsearchTemplate elasticsearchTemplate;
+
     //增加
     @RequestMapping("/add/{id}")
     public String add(@PathVariable("id")String id){
+        List<ZaodaoDnhzx> list = new ArrayList<>();
+        for(int i=0;i<100000;i++){
+            ZaodaoDnhzx zaodaoDnhzx=new ZaodaoDnhzx();
+            zaodaoDnhzx.setId(id+i);
+            zaodaoDnhzx.setName("mqn"+i);
+            zaodaoDnhzx.setSex(String.valueOf(i));
 
-        ZaodaoDnhzx zaodaoDnhzx=new ZaodaoDnhzx();
-        zaodaoDnhzx.setId(id);
-        zaodaoDnhzx.setName("mqn");
-        zaodaoDnhzx.setSex("1");
-        zaodaodnhzxRepository.save(zaodaoDnhzx);
+            list.add(zaodaoDnhzx);
+        }
+
+        zaodaodnhzxRepository.save(list);
 
         return "success";
     }
